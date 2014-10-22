@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:view locale="#{languageBean.language}">
+        <h:head>
+            <h:outputStylesheet library="styles" name="style.css" />
+            <title>Login Page</title>
+        </h:head>
+        <h:body>
+            <h:form>
+                <h:panelGroup>
+                    <h:commandLink immediate="true" rendered="#{!languageBean.polish}" action="#{languageBean.switchLocale}">
+                        <h:graphicImage library="images" name="pl.png" />
+                    </h:commandLink>
+                    <h:commandLink immediate="true" rendered="#{languageBean.polish}" action="#{languageBean.switchLocale}">
+                        <h:graphicImage library="images" name="en.png" />
+                    </h:commandLink>
+                </h:panelGroup>
+                <br/>
+                <h:messages styleClass="errors"/>
+                <h:graphicImage library="images" name="security.png" />
+                <h:panelGrid columns="2">
+                    <h:outputText value="${msgs.login}" />
+                    <h:inputText value="#{authBean.login}" required="true" />
+
+                    <h:outputText value="${msgs.password}" />
+                    <h:inputSecret value="#{authBean.password}" redisplay="false" required="true" /><br/>
+
+                    <h:commandButton value="${msgs.logto}" label="${msgs.logto}" action="#{authBean.tryLogin}" />
+                </h:panelGrid>
+            </h:form>
+        </h:body>
+    </f:view>
+</html>
+

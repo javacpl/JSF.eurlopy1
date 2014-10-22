@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:view locale="#{languageBean.language}">
+        <h:head>
+            <h:outputStylesheet library="styles" name="style.css" />
+            <title>User page</title>
+        </h:head>
+        <h:body>
+            <h:form>
+                <h:commandLink value="Logout" action="#{authBean.logout}" />
+            </h:form>
+            <h:graphicImage library="images" name="user.png" />
+            <h:panelGrid columns="2">
+                <h:outputText value="You are logged as:" />
+                <h:outputText value="#{authBean.user.login}" />
+
+                <h:outputText value="Name" />
+                <h:outputText value="#{authBean.user.firstName}" />
+
+                <h:outputText value="Surname" />
+                <h:outputText value="#{authBean.user.lastName}" />
+
+                <h:outputText value="Street" />
+                <h:outputText value="#{authBean.user.street}" />
+
+                <h:outputText value="City" />
+                <h:outputText value="#{authBean.user.city}"/>
+
+                <h:outputText value="ZIP" />
+                <h:outputText value="#{authBean.user.zipcode}" />
+
+            </h:panelGrid>
+
+            <h:panelGroup>
+                <h:link value="Create holiday request" outcome="addHoliday" />
+            </h:panelGroup>
+        </h:body>
+    </f:view>
+</html>

@@ -1,0 +1,14 @@
+root { 
+    display: block;
+}
+
+td {
+    font-family: "Arial";
+    font-weight: bold
+}
+
+.errors {
+    color: coral
+}
+
+
